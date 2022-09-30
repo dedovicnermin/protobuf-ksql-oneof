@@ -114,10 +114,8 @@
                 <version>7.1.0</version>
                 <configuration>
                     <schemaRegistryUrls>
-<!--                        <schemaRegistryUrl>https://psrc-mw731.us-east-2.aws.confluent.cloud</schemaRegistryUrl>-->
                         <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
                     </schemaRegistryUrls>
-<!--                    <userInfoConfig>C4APRJ6RJADAKXNI:MB4fiFXUgchei/G4VyIM86E3tKipN8jF3/Ky/xn+v5C4VLIGG6USlzxGU18lkEh+</userInfoConfig>-->
                     <subjects>
                         <order>src/main/resources/protobuf/Order.proto</order>
                         <product>src/main/resources/protobuf/Product.proto</product>
