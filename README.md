@@ -35,7 +35,7 @@ Steps:
   - `list topics;`
   - `print alltypes;` (print topic)
 
-#### BASE
+#### BASE (execute me)
 ```
 CREATE STREAM ALL_TYPES WITH (
     KAFKA_TOPIC = 'alltypes',
@@ -43,7 +43,21 @@ CREATE STREAM ALL_TYPES WITH (
 );
 ```
 
-> NOTE: when querying the above in ksql, only the correct event type is populated with struct, the other struct's are shown as null. 
+> NOTE: when querying the above in ksql, only the correct event type is populated with struct, the other struct's are shown as null. View below (truncated)
+
+```
+select * from all_types emit changes;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|MSG_0                                                                                                                                                                                                                       |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|{CUSTOMER=null, PRODUCT={PRODUCT_ID=0, PRODUCT_NAME=Product0}, ORDER=null}                                                                                                                                                  |
+|{CUSTOMER={CUSTOMER_ID=0, CUSTOMER_NAME=FIRST_LAST:0, CUSTOMER_EMAIL=0@email.com, CUSTOMER_ADDRESS=0 W. Blvd}, PRODUCT=null, ORDER=null}                                                                                    |
+|{CUSTOMER=null, PRODUCT=null, ORDER={ORDER_ID=99, ORDER_DATE=99/99/99, ORDER_AMOUNT=99, PRODUCTS=[{PRODUCT_ID=99, PRODUCT_NAME=Product99}], CUSTOMER={CUSTOMER_ID=99, CUSTOMER_NAME=FIRST_LAST:99, CUSTOMER_EMAIL=99@email.c|
+|om, CUSTOMER_ADDRESS=99 W. Blvd}}}                                                                                                                                                                                          |
+
+
+```
+ 
 
 `DESCRIBE ALL_TYPES` RETURNS:
 ```
