@@ -1,3 +1,21 @@
+# Using protobuf's `oneof`
+```protobuf
+syntax = "proto3";
+package io.dedovicnermin.protobuf;
+
+import "Customer.proto";
+import "Order.proto";
+import "Product.proto";
+
+message AllTypes {
+  oneof msg {
+    Customer customer = 1;
+    Product product = 2;
+    Order order = 3;
+  }
+}
+```
+
 Steps:
 - `docker compose up -d`
   - reach broker via cli with bootstrap server `localhost:29092` 
