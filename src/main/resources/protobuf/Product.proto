@@ -1,0 +1,7 @@
+syntax = "proto3";
+package io.dedovicnermin.protobuf;
+
+message Product {
+  int64 product_id = 1;
+  string product_name = 2;
+}
